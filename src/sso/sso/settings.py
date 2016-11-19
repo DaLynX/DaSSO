@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['192.168.1.105']
 # Application definition
 
 INSTALLED_APPS = [
+    'dasso.apps.DassoConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
