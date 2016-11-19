@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
 
-class DassoConfig(AppConfig):
+class DaSSOConfig(AppConfig):
     name = 'dasso'
+    verbose_name = 'DaSSO'
