@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['192.168.1.105']
 
 INSTALLED_APPS = [
     'dasso.apps.DaSSOConfig',
+    'guardian',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'guardian.backends.ObjectPermissionBackend',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
