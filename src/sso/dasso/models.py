@@ -6,3 +6,8 @@ class Ressource(models.Model):
 
     def __str__(self):
         return self.vhost
+
+    class Meta:
+        permissions = (
+            ('access_ressource', 'Access ressource'),
+        )
