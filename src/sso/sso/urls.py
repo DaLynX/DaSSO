@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from dasso.views import check_user_access
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^check_access/(?P<target_vhost>[A-Za-z0-9\.]+)/', check_user_access),
 ]
