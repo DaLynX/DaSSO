@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.1.105']
 
+SESSION_COOKIE_DOMAIN = '.ynx.fr'
+SESSION_COOKIE_NAME = 'DaSSO-SessionID'
 
 # Application definition
 
