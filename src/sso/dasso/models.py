@@ -1,18 +1,22 @@
 from django.db import models
+from .fields import RegexCharField
+
+import re
 
 
 class Ressource(models.Model):
-    vhost = models.CharField(max_length=200)
+    regex = RegexCharField(default=r'^$', max_length=256)
+    manual_priority = models.PositiveSmallIntegerField(blank=True, default=0)
 
     def __str__(self):
-        return self.vhost
+        return self.regex
 
     def matches(self, request):
-        return request.split('/')[0] == self.vhost
+        return re.fullmatch(self.regex, request)
 
     @property
     def priority(self):
-        return 1
+        return self.manual_priority or self.regex.count('/')
 
     class Meta:
         permissions = (
