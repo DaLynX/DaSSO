@@ -4,7 +4,7 @@ from .fields import RegexCharField
 import re
 
 
-class Ressource(models.Model):
+class Resource(models.Model):
     regex = RegexCharField(default=r'^$', max_length=256)
     manual_priority = models.PositiveSmallIntegerField(blank=True, default=0)
     public = models.BooleanField(default=False)
@@ -22,5 +22,5 @@ class Ressource(models.Model):
 
     class Meta:
         permissions = (
-            ('access_ressource', 'Access ressource'),
+            ('access_resource', 'Access resource'),
         )
