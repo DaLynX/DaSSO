@@ -5,7 +5,7 @@ from .models import Ressource
 
 
 class RessourceAdmin(GuardedModelAdmin):
-    pass
+    list_display = ('regex', 'manual_priority', 'priority', 'public', 'any_authenticated')
 
 
 admin.site.register(Ressource, RessourceAdmin)
