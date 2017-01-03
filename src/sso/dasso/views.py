@@ -19,7 +19,11 @@ def check_user_access(request):
             if not target_ressource or target_ressource.priority < r.priority:
                 target_ressource = r
                 logger.info("Selected matching ressource: [{}]".format(r))
-    if request.user.has_perm('access_ressource', target_ressource):
+    if (
+            target_ressource.public or
+            (target_ressource.any_authenticated and request.user.is_authenticated()) or
+            request.user.has_perm('access_ressource', target_ressource)
+        ):
         logger.info("Access granted to [{}] as per ressource [{}].".format(requested_ressource, target_ressource))
         return HttpResponse()
     elif request.user.is_anonymous:

@@ -7,6 +7,8 @@ import re
 class Ressource(models.Model):
     regex = RegexCharField(default=r'^$', max_length=256)
     manual_priority = models.PositiveSmallIntegerField(blank=True, default=0)
+    public = models.BooleanField(default=False)
+    any_authenticated = models.BooleanField(default=False)
 
     def __str__(self):
         return self.regex
